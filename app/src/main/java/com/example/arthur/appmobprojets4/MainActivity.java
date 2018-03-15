@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper db;
 
@@ -52,11 +54,37 @@ public class MainActivity extends AppCompatActivity {
                 onClickAllerEcranMap(view);
             }
         });
-
+        button = (Button) findViewById(R.id.buttonAppBlock);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickAllerEcranChoixApp(view);
+            }
+        });
+        Intent retourMap = getIntent();
+        if (retourMap != null){
+            String adresse = retourMap.getStringExtra("adresse");
+            Double lat = retourMap.getDoubleExtra("lat",0);
+            Double lng = retourMap.getDoubleExtra("lng",0);
+            TextView textview = (TextView)findViewById(R.id.textViewAdresse);
+            textview.setText(adresse);
+            textview.setVisibility(View.VISIBLE);
+            textview = (TextView)findViewById(R.id.textViewLat);
+            textview.setText(String.format(Locale.getDefault(),"%.6f",lat));
+            textview.setVisibility(View.VISIBLE);
+            textview = (TextView)findViewById(R.id.textViewLng);
+            textview.setText(String.format(Locale.getDefault(),"%.6f",lng));
+            textview.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onClickAllerEcranMap(View view) {
         Intent goMap = new Intent(this, MapsActivity.class);
         startActivity(goMap);
+    }
+
+    public void onClickAllerEcranChoixApp(View view) {
+        Intent goAppBlock = new Intent(this, Choix_app_Activity.class);
+        startActivity(goAppBlock);
     }
 }

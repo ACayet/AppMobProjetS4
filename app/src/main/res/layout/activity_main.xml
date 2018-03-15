@@ -5,7 +5,80 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arthur.appmobprojets4.MainActivity">
+    tools:context="com.example.arthur.appmobprojets4.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <RelativeLayout
+        android:layout_width="367dp"
+        android:layout_height="107dp"
+        android:layout_marginBottom="231dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewADRESSE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="15dp"
+            android:text="Adresse :" />
+
+        <TextView
+            android:id="@+id/textViewAdresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewADRESSE"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/textViewADRESSE"
+            android:text="5755474"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textViewLAT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewADRESSE"
+            android:layout_marginTop="18dp"
+            android:layout_toStartOf="@+id/textViewAdresse"
+            android:text="Latitude :" />
+
+        <TextView
+            android:id="@+id/textViewLNG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textViewLAT"
+            android:layout_below="@+id/textViewLAT"
+            android:layout_marginTop="9dp"
+            android:text="Longitude :" />
+
+        <TextView
+            android:id="@+id/textViewLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewLAT"
+            android:layout_alignBottom="@+id/textViewLAT"
+            android:layout_alignStart="@+id/textViewAdresse"
+            android:text="4554"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textViewLng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewLNG"
+            android:layout_alignBottom="@+id/textViewLNG"
+            android:layout_alignStart="@+id/textViewLat"
+            android:text="4554787"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/message"
@@ -31,6 +104,7 @@
         app:menu="@menu/navigation" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="368dp"
         android:layout_height="48dp"
         android:layout_marginEnd="8dp"
@@ -38,9 +112,10 @@
         android:layout_marginTop="357dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.858">
 
         <Button
             android:id="@+id/buttonMap"
@@ -49,6 +124,28 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="@string/button_ouvrir_map" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="367dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="372dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message">
+
+        <Button
+            android:id="@+id/buttonAppBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/button_App_Block" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -11,13 +11,11 @@
     <RelativeLayout
         android:layout_width="367dp"
         android:layout_height="107dp"
-        android:layout_marginBottom="231dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="84dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -106,16 +104,15 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="368dp"
-        android:layout_height="48dp"
+        android:layout_height="103dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="357dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message"
-        app:layout_constraintVertical_bias="0.858">
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/buttonMap"
@@ -124,27 +121,13 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="@string/button_ouvrir_map" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="367dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="17dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="372dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message">
 
         <Button
             android:id="@+id/buttonAppBlock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:text="@string/button_App_Block" />
     </RelativeLayout>
 

@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.arthur.appmobprojets4.Choix_app_Activity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/ListViewApp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

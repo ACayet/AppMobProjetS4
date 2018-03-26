@@ -9,6 +9,8 @@ import android.location.Geocoder;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,9 +30,9 @@ import java.util.Locale;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private String adresse = "";
-    private LatLng latLng;
-    private Marker marker;
+    private static String adresse = "";
+    private static LatLng latLng;
+    private static Marker marker;
     Geocoder geocoder;
 
     @Override
@@ -62,6 +64,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @SuppressLint("MissingPermission")
     private void setUpMap() {
 
+
         mMap.setMyLocationEnabled(true);
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         mMap.getUiSettings().setMapToolbarEnabled(false);
@@ -83,9 +86,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 if (address != null) {
                     StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < address.getMaxAddressLineIndex(); i++){
+
+                    for (int i = 0; i <= address.getMaxAddressLineIndex(); i++){
                         sb.append(address.getAddressLine(i) + "\n");
                     }
+
                     Toast.makeText(MapsActivity.this, sb.toString(), Toast.LENGTH_LONG).show();
                     adresse = sb.toString();
                 }
@@ -128,7 +133,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng paris = new LatLng(48.866667, 2.333333);
-        mMap.addMarker(new MarkerOptions().position(paris).title("Marker in Paris"));
+        latLng = paris;
+
+        marker = mMap.addMarker(new MarkerOptions().position(paris).title("Marker in Paris"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(paris));
         setUpMap();
     }

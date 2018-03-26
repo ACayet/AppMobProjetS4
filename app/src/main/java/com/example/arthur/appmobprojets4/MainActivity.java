@@ -1,6 +1,7 @@
 package com.example.arthur.appmobprojets4;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,10 +11,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper db;
+    private static double lat = 0.000000;
+    private static double lng = 0.000000;
+    private static String adresse = "";
+    private static Location blockedLocation ;
+    private FusedLocationProviderClient mFusedLocationClient;
 
     private TextView mTextMessage;
 
@@ -62,10 +71,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Intent retourMap = getIntent();
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        AfficherAdresse(retourMap);
+
+    }
+
+    public void AfficherAdresse(Intent retourMap){
         if (retourMap != null){
-            String adresse = retourMap.getStringExtra("adresse");
-            Double lat = retourMap.getDoubleExtra("lat",0);
-            Double lng = retourMap.getDoubleExtra("lng",0);
+            adresse = retourMap.getStringExtra("adresse");
+            lat = retourMap.getDoubleExtra("lat",0);
+            lng = retourMap.getDoubleExtra("lng",0);
             TextView textview = (TextView)findViewById(R.id.textViewAdresse);
             textview.setText(adresse);
             textview.setVisibility(View.VISIBLE);
@@ -75,7 +90,14 @@ public class MainActivity extends AppCompatActivity {
             textview = (TextView)findViewById(R.id.textViewLng);
             textview.setText(String.format(Locale.getDefault(),"%.6f",lng));
             textview.setVisibility(View.VISIBLE);
+            //blockedLocation.setLatitude(lat);
+            //blockedLocation.setLatitude(lng);
         }
+    }
+
+    public float getDistance(Location loc1, Location loc2){
+        float distanceInMeters = loc1.distanceTo(loc2);
+        return distanceInMeters;
     }
 
     public void onClickAllerEcranMap(View view) {
